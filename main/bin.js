@@ -1,3 +1,4 @@
 const asn1print = require('.')
 
-asn1print(process.argv.slice(2))
+const output = asn1print(process.argv.slice(2))
+console.log(output)
