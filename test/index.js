@@ -27,4 +27,36 @@ describe('primitives from hex', () => {
     const result = decode(hex)
     expect(result).to.be.equal(expectedOutput)
   })
+
+  it('should decode a positive integer value of length 1', () => {
+    const hex = '020100'
+    const expectedOutput = `INTEGER (1): 0${os.EOL}`
+
+    const result = decode(hex)
+    expect(result).to.be.equal(expectedOutput)
+  })
+
+  it('should decode a positive integer value of length 2', () => {
+    const hex = '02020080'
+    const expectedOutput = `INTEGER (2): 128${os.EOL}`
+
+    const result = decode(hex)
+    expect(result).to.be.equal(expectedOutput)
+  })
+
+  it('should decode a negative integer value of length 1', () => {
+    const hex = '020180'
+    const expectedOutput = `INTEGER (1): -128${os.EOL}`
+
+    const result = decode(hex)
+    expect(result).to.be.equal(expectedOutput)
+  })
+
+  it('should decode a negative integer value of length 2', () => {
+    const hex = '0202FF7F'
+    const expectedOutput = `INTEGER (1): -129${os.EOL}`
+
+    const result = decode(hex)
+    expect(result).to.be.equal(expectedOutput)
+  })
 })
