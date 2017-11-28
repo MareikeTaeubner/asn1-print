@@ -47,9 +47,10 @@ function parsePrimitive(tagCode, value, length) {
  */
 function parseInteger(value, length) {
   let int = parseInt(value, 16)
-  // console.log(parseInt('7F', 16))
+  console.log(parseInt('7F', 16))
   if (!isPositiveNumber(value)) {
     int = int * -1
+    //length >1 -> remove begining FFs, substract number from 256xlength-1
   }
 
   const intString = `INTEGER (${length}): ${int}${os.EOL}`
